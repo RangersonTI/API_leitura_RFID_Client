@@ -2,3 +2,4 @@ pip install django-extensions
 pip install pyOpenSSL
 pip install Werkzeug
 pip install django-cors-headers
+pip install django-csp

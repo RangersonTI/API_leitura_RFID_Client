@@ -9,7 +9,7 @@ def ler_rfid(request):
     so_atual = platform.system()
     
     if so_atual == "Windows":
-        portaCOM = 'COM15'
+        portaCOM = 'COM16'
 
     elif so_atual == "Linux":
         portaCOM = ''
@@ -29,4 +29,4 @@ def ler_rfid(request):
         except Exception as ex:
             return JsonResponse({'error' : str(ex)})
     except Exception as ex:
-        return JsonResponse({'error' : "Erro ao conectar com dispositivo. Porta {portaCOM} não localizada"})
+        return JsonResponse({'error' : "Erro ao conectar com dispositivo. O mesmo não foi localizado."})

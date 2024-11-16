@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     #'django.contrib.messages',
     #'django.contrib.staticfiles',
     'ler_rfid',
-    'django_extensions',
     'csp',
     'corsheaders'
 ]
