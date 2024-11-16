@@ -19,11 +19,11 @@ def ler_rfid(request):
 
     
     try:
-        ser = serial.Serial(portaCOM,9600)
-        rfid=""
+        #ser = serial.Serial(portaCOM,9600)
+        rfid="AR 4F C2 QA"
 
         try:
-            rfid = str(ser.readline().decode('utf-8').strip())
+            #rfid = str(ser.readline().decode('utf-8').strip())
             print(rfid)
             return JsonResponse({'rfid' : rfid})
         except Exception as ex:
