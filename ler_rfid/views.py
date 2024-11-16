@@ -1,5 +1,5 @@
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
+from django.http import JsonResponse
 import serial
 import platform
 
@@ -15,7 +15,7 @@ def ler_rfid(request):
         portaCOM = ''
         
     else:
-        return HttpResponse(f"Não foi possivel configurar o tipo de SO na aplicação 'Leitor Rfid'. SO é desconhecido")
+        return JsonResponse({'error': 'Não foi possivel configurar o tipo de SO na aplicação "Leitor Rfid". SO é desconhecido'})
 
     
     try:
@@ -24,8 +24,9 @@ def ler_rfid(request):
 
         try:
             rfid = str(ser.readline().decode('utf-8').strip())
-            return HttpResponse(f"{rfid}")
+            print(rfid)
+            return JsonResponse({'rfid' : rfid})
         except Exception as ex:
-            return HttpResponse(f"Erro: {ex}")
+            return JsonResponse({'error' : str(ex)})
     except Exception as ex:
-        return HttpResponse(f"Erro ao conectar com dispositivo. Porta {portaCOM} não localizada")
+        return JsonResponse({'error' : "Erro ao conectar com dispositivo. Porta {portaCOM} não localizada"})
