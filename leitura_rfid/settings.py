@@ -37,34 +37,23 @@ INSTALLED_APPS = [
     #'django.contrib.sessions',
     #'django.contrib.messages',
     #'django.contrib.staticfiles',
+    'corsheaders',
     'ler_rfid',
-    'csp',
-    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'csp.middleware.CSPMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#CSP_DEFAULT_SRC = ("'self'",)
-#CSP_CONNECT_SRC = ("'self'", 'http://localhost:8000')
-
-CSP_DEFAULT_SRC = ("*")
-CSP_CONNECT_SRC = ("*")
-
 CORS_ALLOWED_ORIGINS = [
-    'http://192.168.1.105:7000',  # A origem do seu frontend
+    'http://localhost:8000',
 ]
-
-#CORS_ALLOW_ALL_ORIGINS = True
 
 
 ROOT_URLCONF = 'leitura_rfid.urls'

@@ -1,3 +1,6 @@
+pip install pyserial
+pip install django
+
 pip install django-extensions
 pip install pyOpenSSL
 pip install Werkzeug
