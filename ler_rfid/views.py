@@ -9,7 +9,7 @@ def ler_rfid(request):
     so_atual = platform.system()
     
     if so_atual == "Windows":
-        portaCOM = 'COM16'
+        portaCOM = 'COM15'
 
     elif so_atual == "Linux":
         portaCOM = ''
@@ -19,13 +19,11 @@ def ler_rfid(request):
 
     
     try:
-        #ser = serial.Serial(portaCOM,9600)
-        rfid="AR 4F C2 QA"
-        #rfid=""
+        ser = serial.Serial(portaCOM,9600)
+        rfid=""
 
         try:
-            #rfid = str(ser.readline().decode('utf-8').strip())
-            print(rfid)
+            rfid = str(ser.readline().decode('utf-8').strip())
             return JsonResponse({'rfid' : rfid})
         except Exception as ex:
             return JsonResponse({'error' : str(ex)})

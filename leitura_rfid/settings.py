@@ -53,7 +53,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://192.168.1.110:7000',
+    'http://192.168.1.110:7000', # IP;DNS do servidor que terã acesso permitido a API
 ]
 
 
