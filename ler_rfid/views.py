@@ -12,7 +12,7 @@ def ler_rfid(request):
         portaCOM = 'COM15'
 
     elif so_atual == "Linux":
-        portaCOM = ''
+        portaCOM = '/dev/ttyUSB0'
         
     else:
         return JsonResponse({'error': 'Não foi possivel configurar o tipo de SO na aplicação "Leitor Rfid". SO é desconhecido'})
@@ -28,4 +28,5 @@ def ler_rfid(request):
         except Exception as ex:
             return JsonResponse({'error' : str(ex)})
     except Exception as ex:
-        return JsonResponse({'error' : "Erro ao conectar com dispositivo. O mesmo não foi localizado."})
+        print(portaCOM)
+        return JsonResponse({'error' : "Erro ao conectar com dispositivo. O mesmo nao foi localizado."})
