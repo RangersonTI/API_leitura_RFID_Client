@@ -1,25 +1,30 @@
 #!/bin/bash
 
-# atribuir permissao para o ususario  "sudo chown none_usuario ttyUSB0"
-#primeiro criar python3 -m venv venv
-
-# Navegar para o diretório do projeto
-cd /home/rangersonti/Documentos/GitHub/Aplicacao_de_leitura_RFID_Client/
+# Navega para o diretório da API
+cd /home/rangersonti/Documentos/GitHub/API_leitura_RFID_Client/ || echo "Pasta não foi localizada." exit
 echo "Pasta não foi localizada." exit
 
-# Ativar o ambiente virtual
-source venv/bin/activate
+#Configura o ambiente virtual caso nao esteja configurado
+source venv/bin/activate || echo "Ambiente virtual nao  configurado" python3 -m venv venv
+
+# Ativa o ambiente virtual
+source venv/bin/activate echo "Ambiente virtual iniciado."|| python3 -m venv venv
 echo "Ambiente virtual iniciado."
 
-# Instalar dependências necessárias
+
+# Instala dependências necessárias
 pip install pyserial
 pip install django
 pip install django-cors-headers
+
 echo "Dependências instaladas com sucesso."
 
-# atribuir permissao para o ususario ter acesso ao prototivo via porta Serial
-sudo chown rangersonti /dev/ttyUSB0 || exit
+#Configura a porta de comunicacao do prototipo
+chown rangersonti /dev/ttyUSB0
 
-# Iniciar o servidor local
+# Inicia a API local
 python3 manage.py runserver localhost:1524
+
 echo "Servidor local iniciado."
+
+echo "A TELA DEVER'A PERMANECER EM ABERTO ENQUANTO UTILIZA-SE O SISTEMA"
