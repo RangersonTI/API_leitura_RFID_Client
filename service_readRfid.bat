@@ -1,6 +1,7 @@
 @echo off
 cd /d "C:\Users\Rangerson TI\Documents\GitHub\Aplicacao_de_leitura_RFID_Client"
-call venv\Scripts\activate
+call venv\Scripts\activate || py -m venv venv
+call venv\Scripts\activate || py -m venv venv
 
 echo "Ambiente virtual iniciado."
 

@@ -9,7 +9,7 @@ def ler_rfid(request):
     so_atual = platform.system()
     
     if so_atual == "Windows":
-        portaCOM = 'COM15'
+        portaCOM = 'COM24'
 
     elif so_atual == "Linux":
         portaCOM = '/dev/ttyUSB0'
